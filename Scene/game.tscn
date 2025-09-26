@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8s1llp7uot6g"]
+
+[ext_resource type="Texture2D" uid="uid://venu5rvhai4b" path="res://Asset/Sprite/Environments/Forest Road/PNG/forest-road-preview.png" id="1_mhtsl"]
+
+[node name="Game" type="Node2D"]
+
+[node name="BackGround" type="Node" parent="."]
+
+[node name="BG1" type="Sprite2D" parent="BackGround"]
+position = Vector2(206.99998, 320)
+scale = Vector2(2.861607, 2.861607)
+texture = ExtResource("1_mhtsl")
+
+[node name="BG2" type="Sprite2D" parent="BackGround"]
+position = Vector2(891, 323)
+scale = Vector2(2.861607, 2.861607)
+texture = ExtResource("1_mhtsl")

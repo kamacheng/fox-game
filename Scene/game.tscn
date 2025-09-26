@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8s1llp7uot6g"]
+[gd_scene load_steps=3 format=3 uid="uid://b8s1llp7uot6g"]
 
 [ext_resource type="Texture2D" uid="uid://venu5rvhai4b" path="res://Asset/Sprite/Environments/Forest Road/PNG/forest-road-preview.png" id="1_mhtsl"]
+[ext_resource type="PackedScene" uid="uid://d4ygoxum70pl" path="res://Scene/move_sprite.tscn" id="2_w51g1"]
 
 [node name="Game" type="Node2D"]
 
@@ -15,3 +16,5 @@ texture = ExtResource("1_mhtsl")
 position = Vector2(891, 323)
 scale = Vector2(2.861607, 2.861607)
 texture = ExtResource("1_mhtsl")
+
+[node name="Node" parent="." instance=ExtResource("2_w51g1")]

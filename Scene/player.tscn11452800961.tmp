@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://8tu1484wo3sf"]
+[gd_scene load_steps=65 format=3 uid="uid://8tu1484wo3sf"]
 
 [ext_resource type="Script" uid="uid://nv8pwxvhdo2n" path="res://script/player.gd" id="1_c68nv"]
 [ext_resource type="Texture2D" uid="uid://oayekl4xiehx" path="res://Asset/Sprite/Characters/Players/Fiery Imp/climb/climb-sheet.png" id="1_ij4jb"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://ciy5v26j3xxxd" path="res://Asset/Sprite/Characters/Players/Fiery Imp/run/run-preview.png" id="7_fn0wv"]
 [ext_resource type="Texture2D" uid="uid://p5ysaxitl0f3" path="res://Asset/Sprite/Characters/Players/Fiery Imp/shot/shot-preview.png" id="8_eqmt2"]
 [ext_resource type="Texture2D" uid="uid://d14gg04qvweb" path="res://Asset/Sprite/Characters/Players/Fiery Imp/walk/walk-preview.png" id="9_c40dt"]
-[ext_resource type="AudioStream" uid="uid://c5yvdemxy8amc" path="res://Asset/Sound/Running.mp3" id="12_2dof7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lgjog"]
 atlas = ExtResource("1_ij4jb")
@@ -362,7 +361,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"shot",
-"speed": 20.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -423,6 +422,8 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_c68nv")
+base_speed = null
+speed_multiplier = null
 fireball_scene = ExtResource("2_c31lq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -437,14 +438,6 @@ position = Vector2(0, 10.5)
 shape = SubResource("CircleShape2D_c68nv")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.8
 autostart = true
-
-[node name="StepSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_2dof7")
-
-[node name="RestartTimer" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0vkwsw48j80"]
-
-[ext_resource type="AudioStream" uid="uid://d2xs6xy7o2wp0" path="res://Asset/Sound/exploration.ogg" id="1_mg2cc"]
-
-[node name="BGM" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_mg2cc")
-volume_db = 8.0
-autoplay = true

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://venu5rvhai4b" path="res://Asset/Sprite/Environments/Forest Road/PNG/forest-road-preview.png" id="1_mhtsl"]
 [ext_resource type="PackedScene" uid="uid://8tu1484wo3sf" path="res://Scene/player.tscn" id="2_w51g1"]
 [ext_resource type="PackedScene" uid="uid://b8bqynj6tu35g" path="res://Scene/recycle.tscn" id="4_03iqk"]
-[ext_resource type="Script" uid="uid://b7jexo56ucy1b" path="res://script/canvas_layer.gd" id="5_h8jt7"]
+[ext_resource type="Script" uid="uid://b7jexo56ucy1b" path="res://Script/canvas_layer.gd" id="5_h8jt7"]
 [ext_resource type="PackedScene" uid="uid://bqcbrv6vrrs7n" path="res://Scene/spawn.tscn" id="5_ihreq"]
 [ext_resource type="FontFile" uid="uid://cpv54w5t8bxnf" path="res://Asset/Font/Uranus_Pixel_11Px.ttf" id="5_thj8p"]
 
@@ -34,7 +34,6 @@ texture = ExtResource("1_mhtsl")
 [node name="Border" type="Node" parent="."]
 
 [node name="Border" type="StaticBody2D" parent="Border"]
-visible = false
 position = Vector2(492, 626)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border/Border"]

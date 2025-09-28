@@ -1,8 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqcbrv6vrrs7n"]
 
-[ext_resource type="Script" uid="uid://b3ugmwvrau3ib" path="res://script/spawn.gd" id="1_5vypo"]
+[ext_resource type="Script" uid="uid://b3ugmwvrau3ib" path="res://Script/spawn.gd" id="1_5vypo"]
 [ext_resource type="PackedScene" uid="uid://ba6dpvmpo5mqb" path="res://Scene/Opossum.tscn" id="2_cbgb2"]
 
 [node name="Spawn" type="Node2D"]
 script = ExtResource("1_5vypo")
 enmey_scene = ExtResource("2_cbgb2")
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

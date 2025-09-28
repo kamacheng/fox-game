@@ -21,7 +21,6 @@ Bgm="*res://Scene/bgm.tscn"
 
 [display]
 
-window/size/mode=4
 window/stretch/mode="canvas_items"
 
 [input]

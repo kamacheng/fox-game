@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://ba6dpvmpo5mqb"]
 
 [ext_resource type="Texture2D" uid="uid://cos3hv57d3ihs" path="res://Asset/Sprite/Characters/Enemies and NPC/Opossum/spritesheet.png" id="1_514yg"]
-[ext_resource type="Script" uid="uid://bvj7ra6rbivha" path="res://script/Enemy.gd" id="1_ieekh"]
+[ext_resource type="Script" uid="uid://bvj7ra6rbivha" path="res://Script/Enemy.gd" id="1_ieekh"]
 [ext_resource type="Texture2D" uid="uid://o3tre06crfof" path="res://Asset/Sprite/Props Items and VFX/enemy-death 2/spritesheet.png" id="2_oso0w"]
 [ext_resource type="AudioStream" uid="uid://b7ubgaviuek0a" path="res://Asset/Sound/GameOver.mp3" id="4_n5e8n"]
 [ext_resource type="AudioStream" uid="uid://dcvrxmrinn5rg" path="res://Asset/Sound/EnemyDeath.mp3" id="5_tphcq"]
@@ -91,7 +91,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1r4ec"]
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_ieekh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8bqynj6tu35g"]
 
-[ext_resource type="Script" uid="uid://do4e2gqtq0lf8" path="res://script/recycle.gd" id="1_fmkbi"]
+[ext_resource type="Script" uid="uid://do4e2gqtq0lf8" path="res://Script/recycle.gd" id="1_fmkbi"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h2w15"]
 
-[node name="Recycle" type="Area2D"]
+[node name="Recycle" type="Area2D" groups=["recycle"]]
 script = ExtResource("1_fmkbi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

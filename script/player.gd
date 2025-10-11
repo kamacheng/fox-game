@@ -58,7 +58,6 @@ func _on_timer_timeout() -> void:
 	if not is_shotting  or velocity != Vector2.ZERO or is_dead:
 		is_shotting = false
 		return
-
 	animated_sprite.play("shot")
 	await  animated_sprite.animation_finished
 	var fireball = fireball_scene.instantiate()

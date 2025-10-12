@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var fireball_sfx: AudioStreamPlayer2D = $FireballSfx
+@onready var control: Control = $HP/Control
+
 
 @export var base_speed: float = 500
 @export var speed_multiplier: float = 2.0
@@ -19,13 +22,16 @@ var is_flashing: bool = false
 
 
 signal player_dead
+signal update_healthbar
 
 func _ready() -> void:
 	await get_tree().process_frame
 	var ui_layer = get_tree().get_first_node_in_group("ui_layer")
 	if ui_layer != null:
 		player_dead.connect(ui_layer._on_player_dead)
-
+	
+	update_healthbar.connect(control.update_healthbar)
+	update_healthbar.emit(hp,max_hp)
 
 func _process(delta: float) -> void:
 	if velocity == Vector2.ZERO or is_dead:
@@ -63,6 +69,7 @@ func _on_timer_timeout() -> void:
 		is_shotting = false
 		return
 	animated_sprite.play("shot")
+	fireball_sfx.play()
 	await  animated_sprite.animation_finished
 	var fireball = fireball_scene.instantiate()
 	fireball.position = position + Vector2(0,12)
@@ -72,6 +79,8 @@ func _on_timer_timeout() -> void:
 func hurt(lose_hp: int = 1):
 	if hp > 0:
 		hp -= lose_hp
+		update_healthbar.emit(hp,max_hp)
+		print("hp",hp)
 		flash_white()
 	else:
 		game_over()
@@ -79,6 +88,8 @@ func hurt(lose_hp: int = 1):
 func _on_heal(heal_hp: int = 1):
 	hp += heal_hp
 	hp = max_hp if hp > max_hp else hp
+	update_healthbar.emit(hp,max_hp)
+	print("hp",hp)
 
 
 func _on_damage_up():
@@ -96,3 +107,7 @@ func flash_white():
 
 func _on_flash_finished():
 	is_flashing = false
+
+func _add_max_hp():
+	max_hp += 1
+	update_healthbar.emit(hp,max_hp)

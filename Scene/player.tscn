@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://8tu1484wo3sf"]
+[gd_scene load_steps=72 format=3 uid="uid://8tu1484wo3sf"]
 
 [ext_resource type="Script" uid="uid://nv8pwxvhdo2n" path="res://script/player.gd" id="1_c68nv"]
 [ext_resource type="Texture2D" uid="uid://oayekl4xiehx" path="res://Asset/Sprite/Characters/Players/Fiery Imp/climb/climb-sheet.png" id="1_ij4jb"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://p5ysaxitl0f3" path="res://Asset/Sprite/Characters/Players/Fiery Imp/shot/shot-preview.png" id="8_eqmt2"]
 [ext_resource type="Texture2D" uid="uid://d14gg04qvweb" path="res://Asset/Sprite/Characters/Players/Fiery Imp/walk/walk-preview.png" id="9_c40dt"]
 [ext_resource type="AudioStream" uid="uid://c5yvdemxy8amc" path="res://Asset/Sound/Running.mp3" id="12_2dof7"]
+[ext_resource type="AudioStream" uid="uid://crvoueqmtgojc" path="res://Asset/sound sfx/fireball.ogg" id="13_4ao7i"]
+[ext_resource type="Texture2D" uid="uid://bnqpvhq0ty8s4" path="res://Asset/UI/Base-01.png" id="14_1sypm"]
+[ext_resource type="Script" uid="uid://qcwqdqdl7xvp" path="res://script/hp.gd" id="14_fn0wv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lgjog"]
 atlas = ExtResource("1_ij4jb")
@@ -420,6 +423,19 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c68nv"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn0wv"]
+atlas = ExtResource("14_1sypm")
+region = Rect2(308, 86, 56, 4)
+margin = Rect2(1, 1, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqmt2"]
+atlas = ExtResource("14_1sypm")
+region = Rect2(307, 21, 58, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sypm"]
+atlas = ExtResource("14_1sypm")
+region = Rect2(308, 118, 56, 4)
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_c68nv")
@@ -446,5 +462,39 @@ stream = ExtResource("12_2dof7")
 [node name="RestartTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="FireballSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_4ao7i")
+volume_db = -10.0
+
+[node name="HP" type="Node2D" parent="."]
+position = Vector2(-18.5, -13.5)
+
+[node name="Control" type="Control" parent="HP"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 10.0
+script = ExtResource("14_fn0wv")
+
+[node name="hp_bar" type="TextureProgressBar" parent="HP/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -6.5
+offset_right = 29.0
+offset_bottom = -0.5
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.0
+texture_under = SubResource("AtlasTexture_fn0wv")
+texture_over = SubResource("AtlasTexture_eqmt2")
+texture_progress = SubResource("AtlasTexture_1sypm")
+texture_progress_offset = Vector2(1, 1)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

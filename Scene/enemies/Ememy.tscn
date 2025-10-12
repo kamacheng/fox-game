@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://ba6dpvmpo5mqb"]
+
+[ext_resource type="Script" uid="uid://bvj7ra6rbivha" path="res://script/Enemy.gd" id="1_s08ct"]
+[ext_resource type="AudioStream" uid="uid://b7ubgaviuek0a" path="res://Asset/Sound/GameOver.mp3" id="2_3own8"]
+[ext_resource type="PackedScene" uid="uid://b2tobwm3ntvp4" path="res://Scene/item/cherry.tscn" id="2_fp5by"]
+[ext_resource type="AudioStream" uid="uid://dcvrxmrinn5rg" path="res://Asset/Sound/EnemyDeath.mp3" id="3_2ufjd"]
+[ext_resource type="PackedScene" uid="uid://gbxgi7une3pj" path="res://Scene/item/carrot.tscn" id="3_bkohh"]
+[ext_resource type="PackedScene" uid="uid://dcq25owc0bqec" path="res://Scene/item/gem.tscn" id="4_vaf16"]
+[ext_resource type="PackedScene" uid="uid://dduw0x3b1eos2" path="res://Scene/item/star.tscn" id="5_037ae"]
+[ext_resource type="PackedScene" uid="uid://mivtu7onil76" path="res://Scene/item/acron.tscn" id="6_fp5by"]
+
+[node name="Enemy" type="Area2D" groups=["enemy"]]
+script = ExtResource("1_s08ct")
+item_cherry = ExtResource("2_fp5by")
+item_carrot = ExtResource("3_bkohh")
+item_gem = ExtResource("4_vaf16")
+item_star = ExtResource("5_037ae")
+item_acron = ExtResource("6_fp5by")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 6)
+scale = Vector2(2.6158233, 2.6158233)
+
+[node name="Gameover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3own8")
+
+[node name="EnemyDeadAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2ufjd")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

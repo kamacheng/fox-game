@@ -1,114 +1,84 @@
-[gd_scene load_steps=18 format=3 uid="uid://ba6dpvmpo5mqb"]
+[gd_scene load_steps=18 format=3 uid="uid://chaofpyaert6v"]
 
-[ext_resource type="Script" uid="uid://bvj7ra6rbivha" path="res://script/Enemy.gd" id="1_2qkm3"]
-[ext_resource type="Texture2D" uid="uid://o3tre06crfof" path="res://Asset/Sprite/Props Items and VFX/enemy-death 2/spritesheet.png" id="2_5dpws"]
-[ext_resource type="Texture2D" uid="uid://cos3hv57d3ihs" path="res://Asset/Sprite/Characters/Enemies and NPC/Opossum/spritesheet.png" id="3_tcb8h"]
-[ext_resource type="AudioStream" uid="uid://b7ubgaviuek0a" path="res://Asset/Sound/GameOver.mp3" id="4_1yral"]
-[ext_resource type="AudioStream" uid="uid://dcvrxmrinn5rg" path="res://Asset/Sound/EnemyDeath.mp3" id="5_3orsq"]
+[ext_resource type="PackedScene" uid="uid://ba6dpvmpo5mqb" path="res://Scene/enemies/Ememy.tscn" id="1_pk1hv"]
+[ext_resource type="Texture2D" uid="uid://cjd0kjuwvotfo" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/energy-smack/_0000_Layer-1.png" id="2_71gut"]
+[ext_resource type="Texture2D" uid="uid://brr6gym4o0uc8" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/energy-smack/_0001_Layer-2.png" id="3_dtwli"]
+[ext_resource type="Texture2D" uid="uid://dbhr7hytg7e5r" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/energy-smack/_0002_Layer-3.png" id="4_8scag"]
+[ext_resource type="Texture2D" uid="uid://dwvtacolfvxd8" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/energy-smack/_0003_Layer-4.png" id="5_a18pe"]
+[ext_resource type="Texture2D" uid="uid://cfqdtgrawcuhh" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/energy-smack/_0004_Layer-5.png" id="6_pg5dh"]
+[ext_resource type="Texture2D" uid="uid://bs8xqju5e6ot6" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/energy-smack/_0005_Layer-6.png" id="7_ar5j3"]
+[ext_resource type="Texture2D" uid="uid://cvrc2fqb5pjhk" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/energy-smack/_0006_Layer-7.png" id="8_15r5u"]
+[ext_resource type="Texture2D" uid="uid://b6krxdxk1pt6u" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/energy-smack/_0007_Layer-8.png" id="9_i2u1y"]
+[ext_resource type="Texture2D" uid="uid://n0wlnotewso0" path="res://Asset/Sprite/Characters/Enemies and NPC/Opossum/opossum/opossum-1.png" id="10_14s0e"]
+[ext_resource type="Texture2D" uid="uid://cx45pkt5yuylw" path="res://Asset/Sprite/Characters/Enemies and NPC/Opossum/opossum/opossum-2.png" id="11_rudkv"]
+[ext_resource type="Texture2D" uid="uid://2044dxhxhalu" path="res://Asset/Sprite/Characters/Enemies and NPC/Opossum/opossum/opossum-3.png" id="12_gj7fi"]
+[ext_resource type="Texture2D" uid="uid://bg1iys0tjmwb0" path="res://Asset/Sprite/Characters/Enemies and NPC/Opossum/opossum/opossum-4.png" id="13_hiokr"]
+[ext_resource type="Texture2D" uid="uid://dmknvvcgm6tg" path="res://Asset/Sprite/Characters/Enemies and NPC/Opossum/opossum/opossum-5.png" id="14_h2u0v"]
+[ext_resource type="Texture2D" uid="uid://c0js2id8vrdb8" path="res://Asset/Sprite/Characters/Enemies and NPC/Opossum/opossum/opossum-6.png" id="15_kwu25"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ieso2"]
-atlas = ExtResource("2_5dpws")
-region = Rect2(0, 0, 28, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1r4ec"]
-atlas = ExtResource("2_5dpws")
-region = Rect2(28, 0, 28, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lvo2f"]
-atlas = ExtResource("2_5dpws")
-region = Rect2(56, 0, 28, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kbvd0"]
-atlas = ExtResource("2_5dpws")
-region = Rect2(84, 0, 28, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ieekh"]
-atlas = ExtResource("3_tcb8h")
-region = Rect2(0, 0, 36, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oso0w"]
-atlas = ExtResource("3_tcb8h")
-region = Rect2(36, 0, 36, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5e8n"]
-atlas = ExtResource("3_tcb8h")
-region = Rect2(72, 0, 36, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tphcq"]
-atlas = ExtResource("3_tcb8h")
-region = Rect2(108, 0, 36, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r842h"]
-atlas = ExtResource("3_tcb8h")
-region = Rect2(144, 0, 36, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_itn1h"]
-atlas = ExtResource("3_tcb8h")
-region = Rect2(180, 0, 36, 28)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ieso2"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_4gkfa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ieso2")
+"texture": ExtResource("2_71gut")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1r4ec")
+"texture": ExtResource("3_dtwli")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lvo2f")
+"texture": ExtResource("4_8scag")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kbvd0")
+"texture": ExtResource("5_a18pe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pg5dh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ar5j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_15r5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_i2u1y")
 }],
 "loop": false,
 "name": &"dead",
-"speed": 8.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ieekh")
+"texture": ExtResource("10_14s0e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oso0w")
+"texture": ExtResource("11_rudkv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n5e8n")
+"texture": ExtResource("12_gj7fi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tphcq")
+"texture": ExtResource("13_hiokr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r842h")
+"texture": ExtResource("14_h2u0v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_itn1h")
+"texture": ExtResource("15_kwu25")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 7.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1r4ec"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_pk1hv"]
 
-[node name="Enemy" type="Area2D" groups=["enemy"]]
-script = ExtResource("1_2qkm3")
+[node name="Enemy" instance=ExtResource("1_pk1hv")]
+hp = 5
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_ieso2")
-autoplay = "default"
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_4gkfa")
+animation = &"dead"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 6)
-scale = Vector2(2.6158233, 2.6158233)
-shape = SubResource("CircleShape2D_1r4ec")
-
-[node name="Gameover" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_1yral")
-
-[node name="EnemyDeadAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_3orsq")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_pk1hv")

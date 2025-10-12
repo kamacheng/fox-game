@@ -35,7 +35,7 @@ animations = [{
 
 [node name="Gem" instance=ExtResource("1_nw0sh")]
 scale = Vector2(4, 4)
-item_score = 10
+item_score = 5
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_ofb3u")

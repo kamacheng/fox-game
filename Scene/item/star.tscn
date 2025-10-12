@@ -39,10 +39,13 @@ animations = [{
 
 [node name="Star" instance=ExtResource("1_hit8i")]
 scale = Vector2(4, 4)
+is_damage_up = true
+is_up_max_hp = true
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_85pob")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_jwr45")
+autoplay = "default"
 frame_progress = 0.75209755

@@ -1,0 +1,98 @@
+[gd_scene load_steps=20 format=3 uid="uid://c4ottj7g6esye"]
+
+[ext_resource type="PackedScene" uid="uid://ba6dpvmpo5mqb" path="res://Scene/enemies/Ememy.tscn" id="1_y83ew"]
+[ext_resource type="Texture2D" uid="uid://beq6jf2yn3p4q" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/enemy-death/_0000_Layer-1.png" id="2_2mbec"]
+[ext_resource type="Texture2D" uid="uid://m7k4nouw6kne" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/enemies/bee/bee-1.png" id="2_s5jcw"]
+[ext_resource type="Texture2D" uid="uid://34twuycdm11s" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/enemies/bee/bee-2.png" id="3_0jgdx"]
+[ext_resource type="Texture2D" uid="uid://d3wmrh6rdng5g" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/enemy-death/_0001_Layer-2.png" id="3_kdvwe"]
+[ext_resource type="Texture2D" uid="uid://c3t8wincukyp0" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/enemy-death/_0002_Layer-3.png" id="4_abngj"]
+[ext_resource type="Texture2D" uid="uid://celr202ib0ger" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/enemies/bee/bee-3.png" id="4_bg28w"]
+[ext_resource type="Texture2D" uid="uid://dc8v56n0bvks1" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/enemies/bee/bee-4.png" id="5_278p2"]
+[ext_resource type="Texture2D" uid="uid://dn101hu1q6n1s" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/enemy-death/_0003_Layer-4.png" id="5_wqea0"]
+[ext_resource type="Texture2D" uid="uid://e3ccmj1306x4" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/enemy-death/_0004_Layer-5.png" id="6_7c8le"]
+[ext_resource type="Texture2D" uid="uid://dcxkvm1hknpmo" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/enemies/bee/bee-5.png" id="6_u4hb1"]
+[ext_resource type="Texture2D" uid="uid://c7md7nt8rpsfd" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/enemies/bee/bee-6.png" id="7_epj27"]
+[ext_resource type="Texture2D" uid="uid://ddpuk2a0awkph" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/enemy-death/_0005_Layer-6.png" id="7_olnlq"]
+[ext_resource type="Texture2D" uid="uid://um8h3k7bmbtf" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/enemies/bee/bee-7.png" id="8_llpl7"]
+[ext_resource type="Texture2D" uid="uid://cakvync0e212d" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/enemy-death/_0006_Layer-7.png" id="8_vvslq"]
+[ext_resource type="Texture2D" uid="uid://ci8c6b7yvicow" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/enemies/bee/bee-8.png" id="9_2mbec"]
+[ext_resource type="Texture2D" uid="uid://drw1i4qndsrl7" path="res://Asset/Sprite/Props Items and VFX/Grotto-escape-2-FX/sprites/enemy-death/_0007_Layer-8.png" id="9_r5apq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdvwe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2mbec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kdvwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_abngj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wqea0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7c8le")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_olnlq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vvslq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_r5apq")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s5jcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0jgdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bg28w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_278p2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u4hb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_epj27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_llpl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2mbec")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y83ew"]
+
+[node name="Bee" instance=ExtResource("1_y83ew")]
+scale = Vector2(2, 2)
+max_speed = -180.0
+hp = 22
+score = 15
+enemy_type = 1
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_kdvwe")
+animation = &"dead"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_y83ew")

@@ -1,0 +1,72 @@
+[gd_scene load_steps=14 format=3 uid="uid://bhorvql7dl404"]
+
+[ext_resource type="PackedScene" uid="uid://ba6dpvmpo5mqb" path="res://Scene/enemies/Ememy.tscn" id="1_j5k5l"]
+[ext_resource type="Texture2D" uid="uid://bunwqc6tladyi" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/enemy-death/enemy-death-1.png" id="2_7safd"]
+[ext_resource type="Texture2D" uid="uid://1g7o54v7g03w" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/enemy-death/enemy-death-2.png" id="3_fxcl7"]
+[ext_resource type="Texture2D" uid="uid://dj1e1n06k6ofu" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/enemy-death/enemy-death-3.png" id="4_l04e8"]
+[ext_resource type="Texture2D" uid="uid://bqpf88o6aoija" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/enemy-death/enemy-death-4.png" id="5_o8s4c"]
+[ext_resource type="Texture2D" uid="uid://b7fxvjlix1gnt" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/enemy-death/enemy-death-5.png" id="6_5g6ge"]
+[ext_resource type="Texture2D" uid="uid://jgu1w84omwpi" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/enemy-death/enemy-death-6.png" id="7_fq66g"]
+[ext_resource type="Texture2D" uid="uid://bwtwfw4j5eyf7" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/enemies/slug/slug-1.png" id="8_tl35k"]
+[ext_resource type="Texture2D" uid="uid://d1g83fy7ot5xr" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/enemies/slug/slug-2.png" id="9_roa7e"]
+[ext_resource type="Texture2D" uid="uid://vgt2fcny10ky" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/enemies/slug/slug-3.png" id="10_8i4v7"]
+[ext_resource type="Texture2D" uid="uid://bh6jcr5beqnjh" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/enemies/slug/slug-4.png" id="11_kod8b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2kk8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7safd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fxcl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l04e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o8s4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5g6ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fq66g")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_tl35k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_roa7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8i4v7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kod8b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s354t"]
+
+[node name="Slug" instance=ExtResource("1_j5k5l")]
+scale = Vector2(4, 4)
+max_speed = -20.0
+hp = 200
+score = 30
+damage = 4
+enemy_type = 2
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_p2kk8")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_s354t")

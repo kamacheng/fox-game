@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqcbrv6vrrs7n"]
+[gd_scene load_steps=5 format=3 uid="uid://bqcbrv6vrrs7n"]
 
 [ext_resource type="Script" uid="uid://b3ugmwvrau3ib" path="res://script/spawn.gd" id="1_5vypo"]
-[ext_resource type="PackedScene" uid="uid://ba6dpvmpo5mqb" path="res://Scene/enemies/Opossum.tscn" id="2_cbgb2"]
+[ext_resource type="PackedScene" uid="uid://chaofpyaert6v" path="res://Scene/enemies/opossum.tscn" id="2_cbgb2"]
+[ext_resource type="PackedScene" uid="uid://c4ottj7g6esye" path="res://Scene/enemies/bee.tscn" id="3_6npjh"]
+[ext_resource type="PackedScene" uid="uid://bhorvql7dl404" path="res://Scene/enemies/slug.tscn" id="4_q6bst"]
 
 [node name="Spawn" type="Node2D"]
 script = ExtResource("1_5vypo")
-enmey_scene = ExtResource("2_cbgb2")
+enmey_normal = ExtResource("2_cbgb2")
+enmey_elite = ExtResource("3_6npjh")
+enmey_boss = ExtResource("4_q6bst")
 
 [node name="LevelTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://gbxgi7une3pj"]
+
+[ext_resource type="PackedScene" uid="uid://sw0rblbvmiqv" path="res://Scene/item/item.tscn" id="1_3j6es"]
+[ext_resource type="Texture2D" uid="uid://b0rsp5uwpy1fg" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/carrot/carrot-1.png" id="2_1pilg"]
+[ext_resource type="Texture2D" uid="uid://dt1dw8lqm7lwv" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/carrot/carrot-2.png" id="3_vekke"]
+[ext_resource type="Texture2D" uid="uid://bg1buv50r03r8" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/carrot/carrot-3.png" id="4_vmarg"]
+[ext_resource type="Texture2D" uid="uid://dvdqlv7r0pnfn" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/carrot/carrot-4.png" id="5_o5fxt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_72i6o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1s6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1pilg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vekke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vmarg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o5fxt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Carrot" instance=ExtResource("1_3j6es")]
+scale = Vector2(3, 3)
+heal_hp = 1
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_72i6o")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_k1s6q")
+frame_progress = 0.8049435

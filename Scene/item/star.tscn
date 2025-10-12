@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://dduw0x3b1eos2"]
+
+[ext_resource type="PackedScene" uid="uid://sw0rblbvmiqv" path="res://Scene/item/item.tscn" id="1_hit8i"]
+[ext_resource type="Texture2D" uid="uid://brolfo7mitlyn" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/star/star-1.png" id="2_6mml2"]
+[ext_resource type="Texture2D" uid="uid://b5ex3gitrf08j" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/star/star-2.png" id="3_i8cj7"]
+[ext_resource type="Texture2D" uid="uid://dj2natlnp7nt2" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/star/star-3.png" id="4_thrpl"]
+[ext_resource type="Texture2D" uid="uid://cvltt15juxrq7" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/star/star-4.png" id="5_rlpwa"]
+[ext_resource type="Texture2D" uid="uid://kpmns57it20" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/star/star-5.png" id="6_oph8x"]
+[ext_resource type="Texture2D" uid="uid://chdm30y8wixce" path="res://Asset/Sprite/Environments/Forest/Forest Pack/PNG/sprites/misc/star/star-6.png" id="7_pilrp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85pob"]
+radius = 7.0044627
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwr45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6mml2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i8cj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_thrpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rlpwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_oph8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pilrp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Star" instance=ExtResource("1_hit8i")]
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_85pob")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_jwr45")
+frame_progress = 0.75209755

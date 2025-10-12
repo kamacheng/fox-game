@@ -1,7 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://7gl4rdxguupq"]
+[gd_scene load_steps=16 format=3 uid="uid://7gl4rdxguupq"]
 
 [ext_resource type="Script" uid="uid://cenqodm6xkyqf" path="res://script/Fireball.gd" id="1_3uokc"]
 [ext_resource type="Texture2D" uid="uid://cdx8y0axkffa5" path="res://Asset/Sprite/Props Items and VFX/fireball/spritesheet.png" id="1_58jy7"]
+[ext_resource type="Texture2D" uid="uid://dmjsj2iv1v8p7" path="res://Asset/Sprite/Props Items and VFX/fireball-hit/Sprites/fireball-hit-1.png" id="3_i5yjp"]
+[ext_resource type="Texture2D" uid="uid://gg6l565k8jb3" path="res://Asset/Sprite/Props Items and VFX/fireball-hit/Sprites/fireball-hit-2.png" id="4_y05qh"]
+[ext_resource type="Texture2D" uid="uid://r07b8ybs2i6c" path="res://Asset/Sprite/Props Items and VFX/fireball-hit/Sprites/fireball-hit-3.png" id="5_12jwi"]
+[ext_resource type="Texture2D" uid="uid://cpovdtbwyfn5x" path="res://Asset/Sprite/Props Items and VFX/fireball-hit/Sprites/fireball-hit-4.png" id="6_0rwsi"]
+[ext_resource type="Texture2D" uid="uid://bt1ba7p00ux4w" path="res://Asset/Sprite/Props Items and VFX/fireball-hit/Sprites/fireball-hit-5.png" id="7_jnk6e"]
+[ext_resource type="Texture2D" uid="uid://c8fkaif3k38gw" path="res://Asset/Sprite/Props Items and VFX/fireball-hit/Sprites/fireball-hit-6.png" id="8_q5q0l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3uokc"]
 atlas = ExtResource("1_58jy7")
@@ -44,6 +50,29 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_i5yjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y05qh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_12jwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0rwsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jnk6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q5q0l")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 12.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_58jy7"]
@@ -54,8 +83,10 @@ script = ExtResource("1_3uokc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_27v27")
+animation = &"hit"
 autoplay = "default"
-frame_progress = 0.8634604
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.7603135, 0.7603135)

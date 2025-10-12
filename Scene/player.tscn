@@ -1,6 +1,6 @@
 [gd_scene load_steps=66 format=3 uid="uid://8tu1484wo3sf"]
 
-[ext_resource type="Script" uid="uid://nv8pwxvhdo2n" path="res://Script/player.gd" id="1_c68nv"]
+[ext_resource type="Script" uid="uid://nv8pwxvhdo2n" path="res://script/player.gd" id="1_c68nv"]
 [ext_resource type="Texture2D" uid="uid://oayekl4xiehx" path="res://Asset/Sprite/Characters/Players/Fiery Imp/climb/climb-sheet.png" id="1_ij4jb"]
 [ext_resource type="PackedScene" uid="uid://7gl4rdxguupq" path="res://Scene/FIreball.tscn" id="2_c31lq"]
 [ext_resource type="Texture2D" uid="uid://b5r4xsq0u1i58" path="res://Asset/Sprite/Characters/Players/Fiery Imp/crouch/crouch-preview.png" id="2_c68nv"]

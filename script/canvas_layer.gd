@@ -31,8 +31,8 @@ func _input(event: InputEvent) -> void:
 				unpause()
 
 
-func _on_enemy_dead() -> void:
-	score_point += 1
+func _get_score(score: int = 1) -> void:
+	score_point += score
 	scoreText.text = "Score: " + str(score_point) 
 
 

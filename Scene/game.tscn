@@ -1,22 +1,31 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8s1llp7uot6g"]
+[gd_scene load_steps=17 format=3 uid="uid://b8s1llp7uot6g"]
 
 [ext_resource type="Texture2D" uid="uid://venu5rvhai4b" path="res://Asset/Sprite/Environments/Forest Road/PNG/forest-road-preview.png" id="1_mhtsl"]
 [ext_resource type="PackedScene" uid="uid://8tu1484wo3sf" path="res://Scene/player.tscn" id="2_w51g1"]
 [ext_resource type="PackedScene" uid="uid://b8bqynj6tu35g" path="res://Scene/recycle.tscn" id="4_03iqk"]
-[ext_resource type="Script" uid="uid://b7jexo56ucy1b" path="res://Script/canvas_layer.gd" id="5_h8jt7"]
+[ext_resource type="Script" uid="uid://b7jexo56ucy1b" path="res://script/canvas_layer.gd" id="5_h8jt7"]
 [ext_resource type="PackedScene" uid="uid://bqcbrv6vrrs7n" path="res://Scene/spawn.tscn" id="5_ihreq"]
 [ext_resource type="FontFile" uid="uid://cpv54w5t8bxnf" path="res://Asset/Font/Uranus_Pixel_11Px.ttf" id="5_thj8p"]
 [ext_resource type="Theme" uid="uid://fxaw87gsf52j" path="res://Asset/pause_theme.tres" id="6_twwsd"]
 [ext_resource type="Texture2D" uid="uid://cgbu84esroumv" path="res://Asset/UI/pause_normal.png" id="7_8f6ah"]
 [ext_resource type="Texture2D" uid="uid://bjcbv546m10e2" path="res://Asset/UI/pause_pressed.png" id="8_twwsd"]
 [ext_resource type="Texture2D" uid="uid://bf0p1l5ffuakj" path="res://Asset/UI/pause_hover.png" id="9_c6b8m"]
+[ext_resource type="PackedScene" uid="uid://b2tobwm3ntvp4" path="res://Scene/item/cherry.tscn" id="11_c6b8m"]
+[ext_resource type="PackedScene" uid="uid://dcq25owc0bqec" path="res://Scene/item/gem.tscn" id="12_0ka5k"]
+[ext_resource type="PackedScene" uid="uid://mivtu7onil76" path="res://Scene/item/acron.tscn" id="13_ha7wd"]
+[ext_resource type="PackedScene" uid="uid://dduw0x3b1eos2" path="res://Scene/item/star.tscn" id="14_yjs1f"]
+[ext_resource type="PackedScene" uid="uid://gbxgi7une3pj" path="res://Scene/item/carrot.tscn" id="15_vyw1f"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w51g1"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("2_w51g1")]
+[node name="Cherry" parent="." instance=ExtResource("11_c6b8m")]
+position = Vector2(281, 403)
+is_damage_up = true
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_w51g1")]
 position = Vector2(126, 370)
 
 [node name="BackGround" type="Node" parent="."]
@@ -75,11 +84,11 @@ theme = ExtResource("6_twwsd")
 
 [node name="Score" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
-offset_left = 65.0
-offset_right = 275.0
+offset_left = 32.0
+offset_right = 242.0
 offset_bottom = 85.0
 theme_override_fonts/font = ExtResource("5_thj8p")
-theme_override_font_sizes/font_size = 84
+theme_override_font_sizes/font_size = 56
 text = "Score:"
 vertical_alignment = 1
 
@@ -120,6 +129,7 @@ texture_pressed = ExtResource("8_twwsd")
 texture_hover = ExtResource("9_c6b8m")
 
 [node name="PausePanel" type="Panel" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -172,6 +182,18 @@ grow_vertical = 2
 text = "Quit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer"]
+
+[node name="Gem" parent="." instance=ExtResource("12_0ka5k")]
+position = Vector2(282, 99)
+
+[node name="Acron" parent="." instance=ExtResource("13_ha7wd")]
+position = Vector2(281, 252)
+
+[node name="Star" parent="." instance=ExtResource("14_yjs1f")]
+position = Vector2(283, 541)
+
+[node name="Carrot" parent="." instance=ExtResource("15_vyw1f")]
+position = Vector2(186, 245)
 
 [connection signal="pressed" from="CanvasLayer/Control/PauseButtom" to="CanvasLayer" method="pause"]
 [connection signal="pressed" from="CanvasLayer/Control/PausePanel/ResumeButtom" to="CanvasLayer" method="unpause"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://sw0rblbvmiqv"]
+
+[ext_resource type="Script" uid="uid://bh8o1s1wxgejq" path="res://script/item.gd" id="1_m1cbo"]
+
+[node name="Item" type="Area2D"]
+script = ExtResource("1_m1cbo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

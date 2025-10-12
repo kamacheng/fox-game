@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var base_speed: float = 500
 @export var speed_multiplier: float = 2.0
 @export var fireball_scene: PackedScene
+@export var max_hp: int = 3
+@export var hp: int = 3
+@export var damage: int = 2
 
 var is_shotting: bool = false
 var is_moving: bool = false
@@ -12,6 +15,8 @@ var is_jumping: bool =false
 var is_face_left: bool = false
 var current_speed: float = base_speed
 var is_dead: bool = false
+var is_flashing: bool = false
+
 
 signal player_dead
 
@@ -20,7 +25,6 @@ func _ready() -> void:
 	var ui_layer = get_tree().get_first_node_in_group("ui_layer")
 	if ui_layer != null:
 		player_dead.connect(ui_layer._on_player_dead)
-
 
 
 func _process(delta: float) -> void:
@@ -64,3 +68,31 @@ func _on_timer_timeout() -> void:
 	fireball.position = position + Vector2(0,12)
 	get_tree().current_scene.add_child(fireball)
 	is_shotting = false
+
+func hurt(lose_hp: int = 1):
+	if hp > 0:
+		hp -= lose_hp
+		flash_white()
+	else:
+		game_over()
+
+func _on_heal(heal_hp: int = 1):
+	hp += heal_hp
+	hp = max_hp if hp > max_hp else hp
+
+
+func _on_damage_up():
+	damage += 1
+
+
+func flash_white():
+	if is_flashing:
+		return
+	animated_sprite.modulate = Color(10,10,10)
+	var tween = create_tween()
+	tween.tween_property(animated_sprite,"modulate",Color(1,1,1),0.2)
+	tween.finished.connect(_on_flash_finished)
+
+
+func _on_flash_finished():
+	is_flashing = false
